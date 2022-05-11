@@ -4,7 +4,23 @@ use sha2::{Digest, Sha256};
 use std::fmt::Write;
 use syn::{self, parse_macro_input, ItemFn};
 
-/// TODO
+/// Generates a constant matching the visibility of the function holding a hash of that function
+///
+/// ## Example:
+///
+/// ```
+/// use hashfn::hashfn;
+///
+/// #[hashfn]
+/// pub(crate) fn do_something() {}
+/// ```
+///
+/// expands to
+///
+/// ```
+/// pub(crate) const DO_SOMETHING_HASH: &str = "<hash>";
+/// pub(crate) fn do_something() {}
+/// ```
 #[proc_macro_attribute]
 pub fn hashfn(_attribtues: TokenStream, function: TokenStream) -> TokenStream {
     let function = parse_macro_input!(function as ItemFn);
