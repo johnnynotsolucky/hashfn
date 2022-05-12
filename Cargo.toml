@@ -2,6 +2,13 @@
 name = "hashfn"
 version = "0.1.0"
 edition = "2018"
+authors = ["Tyrone Tudehope <tyrone@bushcraft.dev>"]
+license = "MIT OR Apache-2.0"
+description = "A procedural macro to generate a hash representation of a function as a string slice"
+repository = "https://github.com/johnnynotsolucky/hashfn"
+documentation = "https://docs.rs/hashfn"
+categories = ["development-tools::procedural-macro-helpers"]
+readme = "README.md"
 
 [lib]
 proc-macro = true
