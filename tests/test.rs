@@ -25,6 +25,18 @@ fn test_noop_different_visibility() {
 }
 
 #[test]
+fn test_noop_with_name() {
+    #[hashfn(NOOP)]
+    pub(crate) fn noop() {}
+
+    assert_eq!(
+        "06da81c4933d90d64ed5f156349b3856a7dbdda28d2afff38fcbc5c9e09e7a82",
+        NOOP
+    );
+    noop();
+}
+
+#[test]
 fn test_adder_hash_eq() {
     #[hashfn]
     fn adder(x: i32, y: i32) -> i32 {
